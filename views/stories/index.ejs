@@ -1,0 +1,58 @@
+<?- include('../partials/header')?>
+<main class="section no-pad-bot" id="index-banner">
+	<div class="container">
+		<div class="row">
+			<div class="col s12 m12">
+				<h4>Stories</h4>
+			</div>
+			<? if (typeof stories !== 'undefined' && stories.length > 0) {
+				stories.forEach((row,index) => {
+			?>
+			<div class="col s12 m4">
+				<div class="card center hoverable">
+					<div class="card-content">
+						<span class="card-title"><?-ucFirst(row.title.substr(0, 10))?></span>
+						<p class="min-height-7"><?-row.description.substr(0, 100)?></p>
+					</div>
+					<div class="chip mb-20">
+						<img src="https://www.w3schools.com/w3images/avatar5.png" alt="Contact Person">
+						<?= (typeof row.postedBy !== undefined) ? row.postedBy.name : 'Jane Doe' ?>
+					</div>
+
+					<div class="card-action">
+						<a href="/stories/view/<?-row._id?>" class="btn">Read More</a>
+					</div>
+				</div>
+			</div>
+
+
+			<? })} ?>
+			<? for(let i=1; i <= 0; i++) { ?>
+			<div class="col s12 m4">
+				<div class="card center">
+					<div class="card-content">
+						<span class="card-title">Card Title</span>
+						<p class="min-height-7">I am a very simple card. I am good at containing small bits of
+							information.
+							I am convenient because I require little markup to use effectively.</p>
+					</div>
+					<div class="chip mb-20">
+						<img src="https://www.w3schools.com/w3images/avatar5.png" alt="Contact Person">
+						Jane Doe
+					</div>
+
+					<div class="card-action">
+						<a href="/stories/view/" class="btn">Read More</a>
+					</div>
+				</div>
+			</div>
+			<? } ?>
+		</div>
+
+		<div class="row">
+			<?- include('../partials/pagination')?>
+		</div>
+
+	</div>
+</main>
+<?- include('../partials/footer')?>

@@ -1,0 +1,11 @@
+_.has(haystck, needle) - To check a varibale container a key 
+
+// Mongoose
+
+- lean() which is way faster than Document based query in Mongoose.
+    This also has down side this donot instansiate the model data
+    -> Change tracking
+    -> Casting & Validation
+    -> Getter and Setter
+    -> Virtual
+    -> save()

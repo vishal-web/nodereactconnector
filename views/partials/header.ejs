@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>StoryTeller App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <style>
+      body {
+        display: flex;
+        min-height: 100vh;
+        flex-direction: column;
+      }
+
+      main {
+        flex: 1 0 auto;
+      }
+
+      .mt-10 {margin-top: 10px;}
+      .mt-15 {margin-top: 15px;}
+      .mb-10 {margin-bottom: 10px;}
+      .mb-15 {margin-bottom: 15px;}
+      .mb-20 {margin-bottom: 20px;}
+      .min-height-7 {min-height: 7rem;}
+
+
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav class="" role="navigation">
+        <div class="nav-wrapper container">
+          <a id="logo-container" href="/" class="brand-logo center">StoryTeller</a>
+          <ul class="right hide-on-med-and-down">
+            <? if (user) { ?>
+            <li><a href="#" style='display: block; margin: 0;' data-target="slide-out"><i class="material-icons">account_circle</i></a></li>
+            <li><a href="/dashboard"><?= user.name ?></a></li>
+            <li><a href="/logout">Logout</a></li>
+            <? }else {  ?>
+            <li><a href="/stories">Public Stories</a></li>
+            <? }  ?>
+          </ul>
+          <ul class="left">
+            <li><a href="#" style='display: block; margin: 0;' data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a></li>
+          </ul>
+        </div>
+      </nav>
+      <ul id="slide-out" class="sidenav">
+        <? if (user !== null) { ?>
+        <li>
+          <a href="/dashboard"><button class="btn waves-effect waves-light red" type="submit" name="action"><?= user.name ?> <i class="material-icons right">send</i>
+          </button></a>
+        </li>
+        <? } else { ?>
+        <li>
+          <a href="/auth/google"><button class="btn waves-effect waves-light red" type="submit" name="action">Login With Google Account <i class="material-icons right">send</i>
+          </button></a>
+        </li>
+        <? } ?>
+
+        <li><div class="divider"></div></li>
+        <li><a href="/stories"><i class="material-icons">cloud</i>Public Stories</a></li>
+        <? if (user !== null) { ?>
+        <li><a href="/dashboard"><i class="material-icons">dashboard</i>Dashboard</a></li>
+        <li><a href="/logout"><i class="material-icons">logout</i>Logout</a></li>
+        <? } ?>
+      </ul>
+      <? if(user) {?>
+      <div class="fixed-action-btn">
+        <a href='/stories/add' class="btn-floating btn-large red">
+          <i class="large material-icons">add</i>
+        </a>
+      </div>
+      <? }?>
+    </header>
