@@ -1,7 +1,6 @@
 import React from 'react';
 import Header from '../../components/Layout/Header';
 import Footer from '../../components/Layout/Footer';
-import { text } from 'body-parser';
 
 class Home extends React.Component {
 

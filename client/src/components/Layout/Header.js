@@ -36,7 +36,7 @@ class Header extends React.Component {
     
     return (
       <React.Fragment>
-        <li><a href="#" style={this.customStyle} data-target="slide-out"><i className="material-icons">account_circle</i></a></li>
+        <li><a href="/" style={this.customStyle} data-target="slide-out"><i className="material-icons">account_circle</i></a></li>
         <li><a href="/dashboard">LoggedInUserName</a></li>
         <li><a href="/logout">Logout</a></li>
       </React.Fragment>
